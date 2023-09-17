@@ -14,7 +14,8 @@ def call(String Path = '.') {
     if (changeType == 'minor') {
         def versionParts = env.CURRENT_VERSION.tokenize('.')
         def newMinorVersion = versionParts[1].toInteger() + 1
-        env.CURRENT_VERSION = "${versionParts[0]}.${newMinorVersion}.${versionParts[2]}"
+        def newPatchVersion =  0
+        env.CURRENT_VERSION = "${versionParts[0]}.${newMinorVersion}.${newPatchVersion}"
     } else if (changeType == 'patch') {
         def versionParts = env.CURRENT_VERSION.tokenize('.')
         def newPatchVersion = versionParts[2].toInteger() + 1
